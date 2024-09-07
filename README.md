@@ -25,7 +25,7 @@
   - `/api/books/` for listing and creating books.
 
 ### 4. Apply Permissions:
-- Give only authenticated users permission to create new books.
-- Only author of the book should have permission to modify it.
+- Apply `IsAuthenticated` permission to restrict the creation of new books to logged-in users.
+- The `GET` request should remain accessible to all users.
 
 
