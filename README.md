@@ -9,20 +9,23 @@
 - **Permissions:**
     - Control access to your API endpoints.
   
-## 📚 Task: Implement DRF Features
+## 📚 Task: Implement DRF Features with a `Book` Model using Viewsets
 
-### 1. Create Serializers:
-- Build serializers for transforming data from your models into JSON format.
-- Use the serializers to handle both `GET` and `POST` requests.
+### 1. Create a `BookSerializer`:
+- Create a `Book` model with fields: `title`, `author`, and `published_date`.
+- Build a `BookSerializer` to transform `Book` model data into JSON format.
 
-### 2. Implement Views:
-- Create views that use your serializers to handle API requests.
-- Write views for retrieving and creating resources.
+### 2. Implement a `BookViewSet`:
+- Create a `BookViewSet` to handle both listing all books and creating a new book.
+- Use the `ModelViewSet` class to automatically provide `GET`, `POST`, `PUT`, and `DELETE` methods.
 
 ### 3. Set Up Routing:
-- Use `SimpleRouter` or `DefaultRouter` to automatically generate URL routes for your API.
-- Ensure the routes map correctly to your views.
+- Use `DefaultRouter` to automatically generate routes for the `BookViewSet`.
+- Example URLs should be:
+  - `/api/books/` for listing and creating books.
 
 ### 4. Apply Permissions:
-- Set up permission classes to restrict access to specific API endpoints.
-- Test the permissions to ensure only authorized users can access certain views.
+- Give only authenticated users permission to create new books.
+- Only author of the book should have permission to modify it.
+
+
