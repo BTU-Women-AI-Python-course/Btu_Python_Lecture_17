@@ -1,13 +1,12 @@
 ## Django REST Framework Features
 
-- **Serializers:**
-    - Transform complex data types into native Python data types.
-- **Views in DRF:**
-    - Define the logic for handling API requests.
-- **SimpleRouter and DefaultRouter:**
-    - Automatically generate URL routing for your API.
-- **Permissions:**
-    - Control access to your API endpoints.
+- **Serializers (advanced)** - https://www.django-rest-framework.org/api-guide/serializers/:
+  - Transform complex data types into native Python data types.
+- **ViewSets** - https://www.django-rest-framework.org/api-guide/viewsets/:
+- **SimpleRouter and DefaultRouter** - https://www.django-rest-framework.org/api-guide/routers/:
+  - Automatically generate URL routing for your API.
+- **Permissions** - https://www.django-rest-framework.org/api-guide/permissions/:
+  - Control access to your API endpoints.
   
 ## 📚 Task: Implement DRF Features with a `Book` Model using Viewsets
 
