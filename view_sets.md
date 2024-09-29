@@ -93,3 +93,38 @@ class CustomBookViewSet(mixins.ListModelMixin,
 This ViewSet only supports `list` and `retrieve` actions.
 
 ---
+
+Sure! Here’s how you can use different serializers in one ViewSet. It’s common to use a different serializer for different actions in a ViewSet, like using a more detailed serializer for retrieving an object and a simpler serializer for listing objects.
+
+### **9. Using Different Serializers in One ViewSet**
+
+To use different serializers for different actions (e.g., list, retrieve, create), you can define a method within the ViewSet that chooses the appropriate serializer class based on the action being performed. The method `get_serializer_class()` allows you to do this.
+
+#### Example:
+
+```python
+from rest_framework import viewsets
+from .models import Book
+from .serializers import BookSerializer, BookDetailSerializer, BookCreateSerializer
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.all()
+
+    # Use different serializers for different actions
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return BookSerializer  # Simpler serializer for list action
+        elif self.action == 'retrieve':
+            return BookDetailSerializer  # Detailed serializer for retrieve action
+        elif self.action == 'create':
+            return BookCreateSerializer  # Custom serializer for creating a book
+        return BookSerializer  # Fallback to default serializer
+```
+
+#### **Serializers:**
+
+- `BookSerializer`: A simple serializer used for listing books.
+- `BookDetailSerializer`: A more detailed serializer for retrieving a specific book.
+- `BookCreateSerializer`: A custom serializer for creating a new book with additional validation or fields.
+
+By overriding `get_serializer_class()`, you can easily control which serializer is used for different actions in the same ViewSet.
