@@ -40,32 +40,7 @@ class BookViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]  # Only authenticated users can access this ViewSet
 ```
 
-### **3. Custom Permissions**
-You can create custom permission classes by subclassing `BasePermission`. This allows you to define your own logic for granting or denying access.
-
-#### **Example: Custom Permission Class**
-
-```python
-from rest_framework.permissions import BasePermission
-
-class IsOwner(BasePermission):
-    """
-    Custom permission to only allow owners of an object to edit it.
-    """
-    def has_object_permission(self, request, view, obj):
-        return obj.owner == request.user
-```
-
-You can then apply this custom permission to your ViewSet:
-
-```python
-class BookViewSet(viewsets.ModelViewSet):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    permission_classes = [IsOwner]  # Only the owner of the book can edit it
-```
-
-### **4. Permissions and Actions**
+### **3. Permissions and Actions**
 You can customize permissions for different actions within a ViewSet using the `get_permissions()` method:
 
 ```python
@@ -79,7 +54,7 @@ class BookViewSet(viewsets.ModelViewSet):
         return super().get_permissions()  # Allow any user for read actions
 ```
 
-### **5. Combining Multiple Permissions**
+### **4. Combining Multiple Permissions**
 You can combine multiple permission classes by providing a list:
 
 ```python
@@ -99,7 +74,6 @@ class BookViewSet(viewsets.ModelViewSet):
 | **IsAuthenticated**               | Grants permission only to authenticated users  |
 | **IsAdminUser**                   | Grants permission only to admin users         |
 | **IsAuthenticatedOrReadOnly**     | Grants read-only access to unauthenticated users but requires authentication for writes |
-| **Custom Permissions**            | Define specific logic for access control      |
 
 ---
 
