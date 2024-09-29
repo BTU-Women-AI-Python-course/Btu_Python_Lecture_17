@@ -111,7 +111,7 @@ class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
 
     # Use different serializers for different actions
-    def get_serializer_class(self):
+    def get_serializer(self):
         if self.action == 'list':
             return BookSerializer  # Simpler serializer for list action
         elif self.action == 'retrieve':
