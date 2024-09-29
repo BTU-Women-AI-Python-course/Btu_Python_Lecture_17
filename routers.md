@@ -84,7 +84,6 @@ urlpatterns = [
 | Feature                | SimpleRouter | DefaultRouter |
 |------------------------|--------------|---------------|
 | Root API view           | ❌ No         | ✅ Yes        |
-| Trailing slashes        | ❌ No         | ✅ Yes        |
 | Basic routing support   | ✅ Yes        | ✅ Yes        |
 | Suitable for minimal APIs | ✅ Yes     | ❌ More complex APIs |
 
