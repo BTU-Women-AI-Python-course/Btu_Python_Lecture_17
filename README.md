@@ -6,7 +6,7 @@
 - **ViewSets** - https://www.django-rest-framework.org/api-guide/viewsets/:
 - **SimpleRouter and DefaultRouter** - https://www.django-rest-framework.org/api-guide/routers/:
   - Automatically generate URL routing for your API.
-- **Permissions** - https://www.django-rest-framework.org/api-guide/permissions/:
+- **Default Permissions** - https://www.django-rest-framework.org/api-guide/permissions/:
   - Control access to your API endpoints.
   
 ## 📚 Task: Implement DRF Features with a `Book` Model using Viewsets
