@@ -111,14 +111,14 @@ class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
 
     # Use different serializers for different actions
-    def get_serializer(self):
+    def get_serializer(self, *args, **kwargs):
         if self.action == 'list':
-            return BookSerializer  # Simpler serializer for list action
+            return BookSerializer(*args, **kwargs)  # Simpler serializer for list action
         elif self.action == 'retrieve':
-            return BookDetailSerializer  # Detailed serializer for retrieve action
+            return BookDetailSerializer(*args, **kwargs)  # Detailed serializer for retrieve action
         elif self.action == 'create':
-            return BookCreateSerializer  # Custom serializer for creating a book
-        return BookSerializer  # Fallback to default serializer
+            return BookCreateSerializer(*args, **kwargs)  # Custom serializer for creating a book
+        return BookSerializer(*args, **kwargs)  # Fallback to default serializer
 ```
 
 #### **Serializers:**
